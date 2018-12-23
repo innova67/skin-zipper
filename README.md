@@ -1,4 +1,4 @@
-# skin-zipper
+# skin pack creator
 pack all yout favorite skins into a single skin pack [here](https://innova67.github.io/skin-zipper/)
 
 ## how does it works?
