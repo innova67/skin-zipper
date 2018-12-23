@@ -1,3 +1,6 @@
+# skin zipper
+pack all yout favorite skins into a single skin pack [here](https://innova67.github.io/skin-zipper/)
+
 ## choose your skins
 minecraft bedrock skins resolution must be either 16x16 or 32x32
 
