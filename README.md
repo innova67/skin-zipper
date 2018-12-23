@@ -1,2 +1,2 @@
 # skin-zipper
-website wich allows you to zip all your desired skins into a single skinpack
+pack all yout favorite skins into a single skin pack [here](https://innova67.github.io/skin-zipper/)
