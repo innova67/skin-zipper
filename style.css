@@ -1,0 +1,121 @@
+/*------------------------------------
+*   helloudah
+*   nothing to see here bro ;)
+-------------------------------------*/
+
+/*--------------------------------------------------------
+    main style
+--------------------------------------------------------*/
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #ffffff;
+    background-color: #152e64;
+}
+
+header {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+    background-color: #76c3e7;
+    padding-bottom: 10px;
+}
+
+button {
+	display: inline-block;
+	margin-bottom: 0;
+	margin-bottom: 10px;
+	padding: 6px 12px;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	vertical-align: middle;
+	text-align: center;
+	white-space: nowrap;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 1.428571429;
+    cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+header .intro{
+	border-radius: 25px;
+	background: #3333339a;
+    border: 5px solid rgb(102, 148, 148);
+    padding: 20px; 
+	height: 150px;
+	width: 500px;
+	margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+}
+p.choose {
+    font-weight: 400;
+    font-size: 40px;
+}
+
+.aux {
+    font-size: 30px;
+}
+
+/*--------------------------------------------------------
+    form style
+---------------------------------------------------------*/
+form {
+    padding: 20px;
+  }
+form p {
+    line-height: 32px;
+    padding-left: 10px;
+  }
+  form label, form button {
+    background-color: #7F9CCB;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px ridge black;
+    font-size: 30px;
+    height: auto;
+  }
+  form label:hover, form button:hover {
+    background-color: #2D5BA3;
+    color: white;
+  }
+  form label:active, form button:active {
+    background-color: #0D3F8F;
+    color: white;
+  }
+  div.preview img {
+    height: 64px;
+    order: 1;
+    margin: 0px 10%;
+  }
+
+  form div {
+      margin-top: 10px;
+  }
+
+  form div > p {
+    background: #eee;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    list-style-type: none;
+    border: 1px solid black;
+    width: 500px;
+  }
+
+  /*----------------------------------------------
+    table skin style
+--------------------------------------------------*/
+table {
+    margin: auto;
+}
+td {
+    width: 300px;
+    max-width: 300px;
+    border:1px dashed #ffffff;
+}
