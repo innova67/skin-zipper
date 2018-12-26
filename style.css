@@ -92,10 +92,17 @@ form p {
     height: 64px;
     order: 1;
     margin: 0px 10%;
+    background-color: rgba(240, 248, 255, 0.199);
+    padding: 5px;
+    border-radius: 5px;
   }
 
   form div {
       margin-top: 10px;
+  }
+
+  div.accessory {
+      margin-top: 0px;
   }
 
   form div > p {
@@ -118,4 +125,10 @@ td {
     width: 300px;
     max-width: 300px;
     border:1px dashed #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+input {
+    margin-left: 30px;
 }
