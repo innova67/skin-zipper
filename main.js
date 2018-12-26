@@ -1,5 +1,6 @@
 var input = document.querySelector('input');
 var preview = document.querySelector('.preview');
+var skins = document.getElementById('skins');
 var reseteo = document.getElementById('reseteo');
 var nothing = document.querySelector('.null');
 var row1 = document.querySelector('.row-1');
@@ -28,8 +29,10 @@ function updateImageDisplay() {
     var curFiles = input.files;
     if (curFiles.length === 0) {
         var para = document.createElement('p');
+        para.class = 'null';
+        para.style = 'color:black';
         para.textContent = 'No files currently selected for upload';
-        preview.appendChild(para);
+        preview.insertBefore(para, skins);
     }
     else if (curFiles.length > 15 || count > 14) {
         alert("you reach the maximum of 15 files added");
@@ -62,8 +65,10 @@ function updateImageDisplay() {
 
             } else {
                 var para = document.createElement('p');
+                para.class = 'null';
+                para.style = 'color:black';
                 para.textContent = 'File name ' + curFiles[i].name + ': Not a valid file type. Update your selection.';
-                listItem.appendChild(para);
+                preview.insertBefore(para, skins);
             }
 
 
@@ -111,9 +116,35 @@ function returnFileSize(number) {
 }
 
 function reset() {
-    while (preview.firstChild) {
-        preview.removeChild(preview.firstChild);
-    }
+    while (row1.firstChild) {
+        var dentroTd = row1.firstChild;
+        var imagen = dentroTd.firstChild;
+        console.log(imagen.src);
+        window.URL.revokeObjectURL(imagen.src);
+        console.log(imagen.src);
+        row1.removeChild(row1.firstChild);
+    };
+    
+    while (row2.firstChild) {
+        var dentroTd = row2.firstChild;
+        var imagen = dentroTd.firstChild;
+        window.URL.revokeObjectURL(imagen.src);
+        row2.removeChild(row2.firstChild);
+    };
+    
+    while (row3.firstChild) {
+        var dentroTd = row3.firstChild;
+        var imagen = dentroTd.firstChild;
+        window.URL.revokeObjectURL(imagen.src);
+        row3.removeChild(row3.firstChild);
+    };
+
+    var para = document.createElement('p');
+    para.class = 'null';
+    para.style = 'color:black';
+    para.textContent = 'No files currently selected for upload';
+    preview.insertBefore(para, skins);
+    
     console.log('reset exitoso');
 }
 
