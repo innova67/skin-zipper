@@ -10,35 +10,35 @@
 body {
     font-family: 'Source Sans Pro', sans-serif;
     color: #ffffff;
-    background-color: #152e64;
+    background-color: #05294B;
 }
 
 header {
     text-align: center;
     font-size: 40px;
     font-weight: 600;
-    background-color: #76c3e7;
+    background-color: #6084A7;
     padding-bottom: 10px;
+    border-radius: 10px;
+    margin: 30px 0;
+}
+
+h1 {
+    margin: 20px 0;
 }
 
 button {
-	display: inline-block;
-	margin-bottom: 0;
-	margin-bottom: 10px;
+	display: block;
+	margin:0 auto 10px auto;
 	padding: 6px 12px;
 	border: 1px solid transparent;
 	border-radius: 5px;
-	vertical-align: middle;
 	text-align: center;
 	white-space: nowrap;
 	font-weight: normal;
 	font-size: 18px;
 	line-height: 1.428571429;
     cursor: pointer;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	-o-user-select: none;
 	user-select: none;
 }
 
@@ -51,7 +51,7 @@ header .intro{
 	width: 500px;
 	margin-left: auto;
     margin-right: auto;
-    font-weight: 400;
+    font-weight: 350;
 }
 p.choose {
     font-weight: 400;
@@ -60,6 +60,17 @@ p.choose {
 
 .aux {
     font-size: 30px;
+}
+
+li{
+    font-size: 20px;
+}
+
+ul,ol {
+    background-color: rgba(96, 132, 167, 0.384);
+    border-radius: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 /*--------------------------------------------------------
@@ -131,4 +142,28 @@ td {
 
 input {
     margin-left: 30px;
+}
+
+/*--------------------------------------------------
+    special settings
+---------------------------------------------------*/
+div#zipn {
+    padding: 20px 0;
+}
+
+div#zipn .aux {
+    margin: 0 0 10px 30px;
+}
+
+footer p {
+    background-color: #6084A7;
+    margin-top: 40px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+button#reseteo {
+    display: initial;
+	margin: 0 0 10px 30px;
 }
