@@ -1,5 +1,6 @@
 var input = document.querySelector('input');
 var preview = document.querySelector('.preview');
+var reseteo = document.getElementById('reseteo');
 var nothing = document.querySelector('.null');
 var row1 = document.querySelector('.row-1');
 var row2 = document.querySelector('.row-2');
@@ -10,6 +11,7 @@ var count = 0;
 input.style.visibility = 'hidden';
 
 input.addEventListener('change', updateImageDisplay);
+reseteo.addEventListener('click', reset);
 
 function updateImageDisplay() {
     /* seccion que limpia las anteriores imagenes subidas y las reemplaza por nuevas
