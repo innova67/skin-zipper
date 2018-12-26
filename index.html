@@ -36,6 +36,10 @@
 	<!-- Skin Viewer Stylesheet --->
 	<link rel="stylesheet" href="minecraft-skinviewer.css">
 
+	<!--scripts-->
+	<script src="http://cdn.jsdelivr.net/g/filesaver.js"></script>
+	<script src="jszip.js"></script>
+
 </head>
 
 <body>
@@ -44,6 +48,13 @@
 		<p class="intro">pack all your favorite skins into a single skin pack and use them everywhere</p>
 	</header>
 
+	<ol>
+		<li>load your skins</li>
+		<li>add a name to the skin</li>
+		<li>choose a name for your skin pack</li>
+		<li>download and enjoy!</li>
+	</ol>
+
 	<!--form file-->
 	<form method="POST" enctype="multipart/form-data">
 		<div>
@@ -51,141 +62,43 @@
 			<input type="file" id="skin_uploads" name="skin_uploads" accept=".png" multiple>
 		</div>
 
-	<!--skins container-->
+		<!--skins container-->
 		<ul>
 			<li>your skins must be either 16x16 or 32x32</li>
 			<li>maximun of 15 skins</li>
 		</ul>
 		<p class="aux">your skins</p>
 		<div class="preview">
-			<p class="null" style="color:#000000">No files currently selected for upload</p>
+			<p id="null" style="color:black">No files currently selected for upload</p>
 			<table id="skins">
 				<tr class="row-1"></tr>
 				<tr class="row-2"></tr>
 				<tr class="row-3"></tr>
 			</table>
 		</div>
-
-	<!--reset button-->
-		<div>
-			<button type="button" id="reseteo">reset files</button>
-		</div>
 	</form>
 
-	<!-- Set Skin for the Viewer -->
-	<style>
-		#skin-viewer-2 * {
-			background-image: url('lobi_verde.png');
-		}
-	</style>
-
-	<!-- Skin Viewer HTML Elements -->
-	<div id="skin-viewer-2" class="mc-skin-viewer-11x spin">
-		<div class="player">
-			<!-- Head -->
-			<div class="head">
-				<div class="top"></div>
-				<div class="left"></div>
-				<div class="front"></div>
-				<div class="right"></div>
-				<div class="back"></div>
-				<div class="bottom"></div>
-				<div class="accessory">
-					<div class="top"></div>
-					<div class="left"></div>
-					<div class="front"></div>
-					<div class="right"></div>
-					<div class="back"></div>
-					<div class="bottom"></div>
-				</div>
-			</div>
-			<!-- Body -->
-			<div class="body">
-				<div class="top"></div>
-				<div class="left"></div>
-				<div class="front"></div>
-				<div class="right"></div>
-				<div class="back"></div>
-				<div class="bottom"></div>
-				<div class="accessory">
-					<div class="top"></div>
-					<div class="left"></div>
-					<div class="front"></div>
-					<div class="right"></div>
-					<div class="back"></div>
-					<div class="bottom"></div>
-				</div>
-			</div>
-			<!-- Left Arm -->
-			<div class="left-arm">
-				<div class="top"></div>
-				<div class="left"></div>
-				<div class="front"></div>
-				<div class="right"></div>
-				<div class="back"></div>
-				<div class="bottom"></div>
-				<div class="accessory">
-					<div class="top"></div>
-					<div class="left"></div>
-					<div class="front"></div>
-					<div class="right"></div>
-					<div class="back"></div>
-					<div class="bottom"></div>
-				</div>
-			</div>
-			<!-- Right Arm -->
-			<div class="right-arm">
-				<div class="top"></div>
-				<div class="left"></div>
-				<div class="front"></div>
-				<div class="right"></div>
-				<div class="back"></div>
-				<div class="bottom"></div>
-				<div class="accessory">
-					<div class="top"></div>
-					<div class="left"></div>
-					<div class="front"></div>
-					<div class="right"></div>
-					<div class="back"></div>
-					<div class="bottom"></div>
-				</div>
-			</div>
-			<!-- Left Leg -->
-			<div class="left-leg">
-				<div class="top"></div>
-				<div class="left"></div>
-				<div class="front"></div>
-				<div class="right"></div>
-				<div class="back"></div>
-				<div class="bottom"></div>
-				<div class="accessory">
-					<div class="top"></div>
-					<div class="left"></div>
-					<div class="front"></div>
-					<div class="right"></div>
-					<div class="back"></div>
-					<div class="bottom"></div>
-				</div>
-			</div>
-			<!-- Right Leg -->
-			<div class="right-leg">
-				<div class="top"></div>
-				<div class="left"></div>
-				<div class="front"></div>
-				<div class="right"></div>
-				<div class="back"></div>
-				<div class="bottom"></div>
-				<div class="accessory">
-					<div class="top"></div>
-					<div class="left"></div>
-					<div class="front"></div>
-					<div class="right"></div>
-					<div class="back"></div>
-					<div class="bottom"></div>
-				</div>
-			</div>
-		</div>
+	<!--reset button-->
+	<div>
+		<button type="button" id="reseteo">reset files</button>
 	</div>
+
+	<!--zip name-->
+	<div id="zipn">
+		<p class="aux">name your skin pack</p>
+		<form action="main.js">
+			<input type="text" name="zip" id="zipname" value="myPack" placeholder="myPack">
+		</form>
+	</div>
+
+	<!--download button-->
+	<div>
+		<button type="button" id="download">DOWNLOAD</button>
+	</div>
+
+	<footer>
+		<p>website Developed by Innova67 under MIT license</p>
+	</footer>
 </body>
 
 <script src="main.js"></script>
