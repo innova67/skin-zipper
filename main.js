@@ -139,6 +139,13 @@ function reset() {
         row3.removeChild(row3.firstChild);
     };
 
+    try {
+        preview.removeChild(nothing);
+    }
+    catch{
+        console.error();
+    }
+
     var para = document.createElement('p');
     para.class = 'null';
     para.style = 'color:black';
