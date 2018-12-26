@@ -35,32 +35,36 @@ function updateImageDisplay() {
     else {
         for (var i = 0; i < curFiles.length; i++) {
             var listItem = document.createElement('td');
-            var para = document.createElement('p');
+            var nombre = document.createElement('input');
 
             if (validFileType(curFiles[i])) {
                 var name = curFiles[i].name;
-                para.textContent = name.replace('.png', '');
+                nombre.id = 'nombres';
+                nombre.value = name.replace('.png', '');
                 var image = document.createElement('img');
                 var dataimage = window.URL.createObjectURL(curFiles[i]);
                 image.src = dataimage;
-/*
-                intento de volver a componer el data url para usarlo en el codigo
-                let bloba = await fetch(dataimage).then(r => r.blob());
-
-                intento de sacado de aqui
-                https://stackoverflow.com/questions/11876175/how-to-get-a-file-or-blob-from-an-object-url/11901662
-*/
-
+                /*
+                                intento de volver a componer el data url para usarlo en el codigo
+                                let bloba = await fetch(dataimage).then(r => r.blob());
+                
+                                intento de sacado de aqui
+                                https://stackoverflow.com/questions/11876175/how-to-get-a-file-or-blob-from-an-object-url/11901662
+                */
+                var pinche_imagen = 'lobi_verde.png'
                 listItem.appendChild(image);
-                listItem.innerHTML += outerHTML = `<style> #skin-viewer-${count} * {background-image: url(\"${dataimage}\");}</style>`;
-                listItem.innerHTML += outerHTML = '<div id=\"skin-viewer\" class=\"mc-skin-viewer-11x spin\"> <div class=\"player\"> <div class=\"head\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> <div class=\"accessory\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> </div> </div> <div class=\"body\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> <div class=\"accessory\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> </div> </div> <div class=\"left-arm\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> <div class=\"accessory\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> </div> </div> <div class=\"right-arm\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> <div class=\"accessory\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> </div> </div> <div class=\"left-leg\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> <div class=\"accessory\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> </div> </div> <div class=\"right-leg\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> <div class=\"accessory\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> </div> </div> </div> </div>';
-                listItem.appendChild(para);
+                listItem.innerHTML += outerHTML = `<style> #skin-viewer-${count} * {background-image: url(\'${dataimage}\');}</style>`;
+                listItem.innerHTML += outerHTML = `<div id=\"skin-viewer-${count}\" class=\"mc-skin-viewer-11x spin\"> <div class=\"player\"> <div class=\"head\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> <div class=\"accessory\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> </div> </div> <div class=\"body\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> <div class=\"accessory\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> </div> </div> <div class=\"left-arm\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> <div class=\"accessory\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> </div> </div> <div class=\"right-arm\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> <div class=\"accessory\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> </div> </div> <div class=\"left-leg\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> <div class=\"accessory\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> </div> </div> <div class=\"right-leg\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> <div class=\"accessory\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> </div> </div> </div> </div>`;
+                listItem.appendChild(nombre);
                 count += 1;
 
             } else {
+                var para = document.createElement('p');
                 para.textContent = 'File name ' + curFiles[i].name + ': Not a valid file type. Update your selection.';
                 listItem.appendChild(para);
             }
+
+
             if (count < 6) {
                 row1.appendChild(listItem);
             }
@@ -102,6 +106,13 @@ function returnFileSize(number) {
     } else if (number > 1048576) {
         return (number / 1048576).toFixed(1) + 'MB';
     }
+}
+
+function reset() {
+    while (preview.firstChild) {
+        preview.removeChild(preview.firstChild);
+    }
+    console.log('reset exitoso');
 }
 
 /*
