@@ -3,7 +3,6 @@ var preview = document.querySelector('.preview');
 var skins = document.getElementById('skins');
 
 var reseteo = document.getElementById('reseteo');
-var nothing = document.getElementById('null');
 
 var row1 = document.querySelector('.row-1');
 var row2 = document.querySelector('.row-2');
@@ -259,6 +258,7 @@ function uuid() {
 
 //no puedo borrar estas advertencias (-_-)
 function Advertencia(modo) {
+	var nothing = document.getElementById('null');
     try {
         if (modo === 'crear') {
             var para = document.createElement('p');
