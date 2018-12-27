@@ -1,17 +1,22 @@
 var input = document.querySelector('input');
 var preview = document.querySelector('.preview');
 var skins = document.getElementById('skins');
+
 var reseteo = document.getElementById('reseteo');
 var nothing = document.getElementById('null');
+
 var row1 = document.querySelector('.row-1');
 var row2 = document.querySelector('.row-2');
 var row3 = document.querySelector('.row-3');
+
+
 var zipname = document.getElementById('zipname');
 var dowload = document.getElementById('download');
 var count = 0;
 
 //iniciar el zip aqui hasta no saber como poder resetear
 var zip = new JSZip;
+var fileList = [];
 
 input.style.visibility = 'hidden';
 
@@ -25,41 +30,49 @@ function actualizarPreview() {
     Advertencia('eliminar');
 
     //atrapar los archivos subidos
-    var curFiles = input.files;
+    var fileInput = input.files;
 
     //devolver error si no se anaden archivos
-    if (curFiles.length === 0) {
+    if (fileInput.length === 0) {
         Advertencia('crear');
     }
 
     //devolver error si se tratan de meter mas de 15 archivos
-    else if (curFiles.length > 15 || count > 14) {
+    else if (fileInput.length > 15 || count > 14) {
         alert("you reach the maximum of 15 files added");
     }
 
     //generar las cosas
     else {
-        for (var i = 0; i < curFiles.length; i++) {
+
+        //habilitar el boton de descarga
+        dowload.disabled = '';
+
+        for (var i = 0; i < fileInput.length; i++) {
             var listItem = document.createElement('td');
             var nombre = document.createElement('input');
 
-            if (validFileType(curFiles[i])) {
+            if (validFileType(fileInput[i])) {
                 //llamar a los archivos ingresados
-                var name = curFiles[i].name;
+                var name = fileInput[i].name;
 
                 //crear preview e input
                 nombre.id = 'nombres';
+                nombre.maxLength = '20';
                 nombre.value = name.replace('.png', '');
                 var image = document.createElement('img');
-                var dataimage = window.URL.createObjectURL(curFiles[i]);
+                var dataimage = window.URL.createObjectURL(fileInput[i]);
                 image.src = dataimage;
                 listItem.appendChild(image);
                 listItem.innerHTML += outerHTML = `<style> #skin-viewer-${count} * {background-image: url(\'${dataimage}\');}</style>`;
                 listItem.innerHTML += outerHTML = `<div id=\"skin-viewer-${count}\" class=\"mc-skin-viewer-11x spin\"> <div class=\"player\"> <div class=\"head\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> <div class=\"accessory\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> </div> </div> <div class=\"body\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> <div class=\"accessory\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> </div> </div> <div class=\"left-arm\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> <div class=\"accessory\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> </div> </div> <div class=\"right-arm\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> <div class=\"accessory\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> </div> </div> <div class=\"left-leg\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> <div class=\"accessory\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> </div> </div> <div class=\"right-leg\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> <div class=\"accessory\"> <div class=\"top\"></div> <div class=\"left\"></div> <div class=\"front\"></div> <div class=\"right\"></div> <div class=\"back\"></div> <div class=\"bottom\"></div> </div> </div> </div> </div>`;
                 listItem.appendChild(nombre);
 
-                //anadir los archivos al zip
-                zip.file(curFiles[i].name, curFiles[i]);
+                //guardando los archivos en una variable auxiliar
+                fileList.push(fileInput[i]);
+
+                //ir generando los archivos adicionales
+
 
                 //ir contando los archivos anadidos
                 count += 1;
@@ -71,7 +84,7 @@ function actualizarPreview() {
                 var para = document.createElement('p');
                 para.id = 'null';
                 para.style = 'color:black';
-                para.textContent = 'File name ' + curFiles[i].name + ': Not a valid file type. Update your selection.';
+                para.textContent = 'File name ' + fileInput[i].name + ': Not a valid file type. Update your selection.';
                 preview.insertBefore(para, skins);
             }
 
@@ -111,8 +124,15 @@ function validFileType(file) {
 
 function reset() {
 
+    //resetear los archivos
+    fileList = [];
+
+    //crear la advertencia de 0 archvios subidos
     Advertencia('eliminar');
-    
+
+    //desabilitar la descarga
+    dowload.disabled = 'disabled';
+
     //iniciar un nuevo zip despreciando los anteriores datos guardados
     zip = new JSZip();
 
@@ -146,14 +166,96 @@ function reset() {
 }
 
 function comprimir() {
+    var enus = `skinpack.${limpiar(zipname)}=${zipname.value}\n`;
+    var enusAux = '';
+
+    var skinsjson =
+        `{
+    "skins":[
+        @
+    ],
+    "serialize_name": "${limpiar(zipname)}",
+    "localization_name": "${limpiar(zipname)}"
+}`;
+    var skinAux = '';
+
+    //anadir los archivos al zip
+    for (var i = 0; i < fileList.length; i++) {
+
+
+        //chekear los nombres y eliminar cualquier espacio en blanco
+        var skinName = document.querySelectorAll('#nombres');
+        var nombre = limpiar(skinName[i]);
+        console.log(nombre);
+        zip.file(nombre + '.png', fileList[i]);
+
+        //recoger datos para el en_US.lang
+        enusAux += `skin.${limpiar(zipname)}.${i}ab=${skinName[i].value}\n`;
+
+        //recoger datos para el skins.json
+        if (fileList.length - 1 === i) {
+            skinAux += `{\n"localization_name": "${i}ab",\n"texture": "${nombre}.png",\n"type": "free"\n}`;
+        }
+        else {
+            skinAux += `{\n"localization_name": "${i}ab",\n"texture": "${nombre}.png",\n"type": "free"\n},\n`;
+        }
+    }
+
+    //crear el en_US.lang
+    enus += enusAux;
+    zip.file("texts/en_US.lang", enus);
+
+    //crear el skins.json
+    skinsjson = skinsjson.replace('@', skinAux);
+    zip.file("skins.json", skinsjson);
+
+    //crear el manifiesto
+    var manifiesto =
+        `{
+    "format_version": 1,
+    "header": {
+        "description": "${limpiar(zipname)} skin pack\\nskin pack generated using SKin Zipper\\nhttps://innova67.github.io/skin-zipper/",
+        "name": "${limpiar(zipname)}",
+        "uuid": "${uuid()}",
+        "version": [1, 0, 0],
+        "min_engine_version": [1, 2, 6]
+    },
+    "modules": [
+    {
+        "type": "skin_pack",
+        "uuid": "${uuid()}",
+        "version": [1, 0, 0]
+        }
+    ]
+}`;
+    zip.file("manifest.json", manifiesto);
+
+    //comprimir todo
     zip.generateAsync({ type: 'blob' })
         .then(function (content) {
             //se le puede poner mcpack, no pasa nada
-            console.log(zipname.value);
-            saveAs(content, zipname.value+".zip");
+            saveAs(content, limpiar(zipname) + ".mcpack");
         })
 }
 
+function limpiar(esto) {
+    var contenido = "";
+    for (var i = 0; i < esto.value.length; i++) {
+        // condicion ? if : else <--- todo comprimido (ineteresante :v)
+        contenido += (esto.value.charAt(i) == " ") ? "_" : esto.value.charAt(i);
+    }
+    return contenido;
+}
+
+function uuid() {
+    var d = new Date().getTime();
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = (d + Math.random() * 16) % 16 | 0;
+        d = Math.floor(d / 16);
+        return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+    return uuid;
+};
 
 //no puedo borrar estas advertencias (-_-)
 function Advertencia(modo) {
@@ -172,3 +274,12 @@ function Advertencia(modo) {
     }
     catch (err) { }
 }
+
+/*
+    ERRORES
+
+conocidos:
+ el mensaje de "ningun archvio seleccionado" no se borra despues de usar el boton reset
+ los dataURL no se borran al usar el reset
+
+*/

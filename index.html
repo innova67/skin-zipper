@@ -64,6 +64,7 @@
 
 		<!--skins container-->
 		<ul>
+			<li>use short names</li>
 			<li>your skins must be either 16x16 or 32x32</li>
 			<li>maximun of 15 skins</li>
 		</ul>
@@ -87,13 +88,13 @@
 	<div id="zipn">
 		<p class="aux">name your skin pack</p>
 		<form action="main.js">
-			<input type="text" name="zip" id="zipname" value="myPack" placeholder="myPack">
+			<input type="text" name="zip" id="zipname" value="myPack" placeholder="myPack" maxlength="15">
 		</form>
 	</div>
 
 	<!--download button-->
 	<div>
-		<button type="button" id="download">DOWNLOAD</button>
+		<button type="button" id="download" disabled="disabled">DOWNLOAD</button>
 	</div>
 
 	<footer>
