@@ -167,3 +167,12 @@ button#reseteo {
     display: initial;
 	margin: 0 0 10px 30px;
 }
+
+a {
+    text-decoration: none;
+    color: rgb(240, 240, 84);
+}
+
+a:hover{
+    color: aqua;
+}
