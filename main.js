@@ -242,6 +242,21 @@ function limpiar(esto) {
     for (var i = 0; i < esto.value.length; i++) {
         // condicion ? if : else <--- todo comprimido (ineteresante :v)
         contenido += (esto.value.charAt(i) == " ") ? "_" : esto.value.charAt(i);
+    };
+    contenido = limpiarEnc(contenido);
+    return contenido;
+}
+
+function limpiarEnc(cadena){
+    var contenido = "";
+    for (var i = 0; i < cadena.length; i++) {
+        if(cadena.charAt(i) === "§"){ 
+        contenido += "";
+        i += 1;
+        }
+        else {
+            contenido += cadena.charAt(i);
+        }
     }
     return contenido;
 }
