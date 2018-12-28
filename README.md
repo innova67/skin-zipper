@@ -18,7 +18,7 @@ pack all yout favorite skins into a single skin pack [here](https://innova67.git
 
 ### progress
 - [x] create html overlook
-- [x] create css dinamic style
+- [x] create css dynamic style
 - [x] create file manager script
 - [x] create generator script
 - [x] open the web to the public
