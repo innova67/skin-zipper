@@ -4,7 +4,8 @@ pack all yout favorite skins into a single skin pack [here](https://innova67.git
 ## how does it works?
 1. just have to load your desired skins into the web
 2. asign a name to each skin
-3. hit the `generate and download` button
+3. hit the `download` button
+4. done!
 
 ## features
 * skin pack fully compatible with all recent miencraft versions
