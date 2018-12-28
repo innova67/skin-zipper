@@ -23,6 +23,8 @@ pack all yout favorite skins into a single skin pack [here](https://innova67.git
 - [x] open the web to the public
 - [x] increase website capabilities
 
+#### website licensed under GNU public license v3.0
+
 ### engines used in this project
 * 3d skin preview: **rkkoszewski** https://github.com/rkkoszewski/minecraft-css-3d-skin-viewer
 * uuid generator: **briguy37** https://jsfiddle.net/briguy37/2MVFd/
