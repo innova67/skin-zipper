@@ -12,8 +12,8 @@ pack all yout favorite skins into a single skin pack [here](https://innova67.git
 * totally free for all 
 
 ## limitations
-* skins resolution must be either 16x16 or 32x32
-* you can charge a maximum of 15 skins in a single pack
+* skins resolution can be 16x16, 32x32, 64x64 or 128x128
+* you can charge a maximum of 50 skins in a single pack
 * special characters in the skin's name such as (';]..]/\@) may cause errors while installing the pack into minecraft
 
 ### progress
@@ -22,6 +22,7 @@ pack all yout favorite skins into a single skin pack [here](https://innova67.git
 - [x] create file manager script
 - [x] create generator script
 - [x] open the web to the public
+- [x] increase website capabilities
 
 ### engines used in this project
 * 3d skin preview: **rkkoszewski** https://github.com/rkkoszewski/minecraft-css-3d-skin-viewer
