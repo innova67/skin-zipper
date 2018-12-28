@@ -42,6 +42,11 @@ button {
 	user-select: none;
 }
 
+button:hover {
+    background-color: #2D5BA3;
+    color: white;
+}
+
 header .intro{
 	border-radius: 25px;
 	background: #3333339a;
@@ -142,6 +147,8 @@ td {
 
 input {
     margin-left: 30px;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 /*--------------------------------------------------

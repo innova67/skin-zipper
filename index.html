@@ -64,10 +64,10 @@
 
 		<!--skins container-->
 		<ul>
-			<li>use short names</li>
-			<li>your skins must be either 16x16 or 32x32</li>
-			<li>maximun of 15 skins</li>
-			<li>skin and pack names support chat color codes! <a href="http://minecraft.tools/en/color-code.php" target="_blank"> -chat-codes- </a></li>
+			<li>it's better if you use short names for your skins</li>
+			<li>your skins can be 16x16, 32x32, 64x64 or 128x128</li>
+			<li>you can add up to 50 skins</li>
+			<li>skin and pack names support chat color codes! <a href="http://minecraft.tools/en/color-code.php" target="_blank"> -chat-color-codes- </a></li>
 		</ul>
 		<p class="aux">your skins</p>
 		<div class="preview">
@@ -76,20 +76,28 @@
 				<tr class="row-1"></tr>
 				<tr class="row-2"></tr>
 				<tr class="row-3"></tr>
+				<tr class="row-4"></tr>
+				<tr class="row-5"></tr>
+				<tr class="row-6"></tr>
+				<tr class="row-7"></tr>
+				<tr class="row-8"></tr>
+				<tr class="row-9"></tr>
+				<tr class="row-10"></tr>
 			</table>
 		</div>
 	</form>
 
 	<!--reset button-->
 	<div>
-		<button type="button" id="reseteo">reset files</button>
+		<!--<button type="button" id="reseteo">reset files</button>-->
+		<button type="button" id="reseteo" onClick="window.location.href=window.location.href">reset files</button>
 	</div>
 
 	<!--zip name-->
 	<div id="zipn">
 		<p class="aux">name your skin pack</p>
 		<form action="main.js">
-			<input type="text" name="zip" id="zipname" value="myPack" placeholder="myPack" maxlength="15">
+			<input type="text" name="zip" id="zipname" value="myPack" placeholder="myPack" maxlength="30">
 		</form>
 	</div>
 

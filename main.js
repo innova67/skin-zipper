@@ -7,6 +7,13 @@ var reseteo = document.getElementById('reseteo');
 var row1 = document.querySelector('.row-1');
 var row2 = document.querySelector('.row-2');
 var row3 = document.querySelector('.row-3');
+var row4 = document.querySelector('.row-4');
+var row5 = document.querySelector('.row-5');
+var row6 = document.querySelector('.row-6');
+var row7 = document.querySelector('.row-7');
+var row8 = document.querySelector('.row-8');
+var row9 = document.querySelector('.row-9');
+var row10 = document.querySelector('.row-10');
 
 
 var zipname = document.getElementById('zipname');
@@ -36,9 +43,9 @@ function actualizarPreview() {
         Advertencia('crear');
     }
 
-    //devolver error si se tratan de meter mas de 15 archivos
-    else if (fileInput.length > 15 || count > 14) {
-        alert("you reach the maximum of 15 files added");
+    //devolver error si se tratan de meter mas de 50 archivos
+    else if (fileInput.length > 50 || count > 49) {
+        alert("you reach the maximum of 50 files added");
     }
 
     //generar las cosas
@@ -57,7 +64,7 @@ function actualizarPreview() {
 
                 //crear preview e input
                 nombre.id = 'nombres';
-                nombre.maxLength = '20';
+                nombre.maxLength = '30';
                 nombre.value = name.replace('.png', '');
                 var image = document.createElement('img');
                 var dataimage = window.URL.createObjectURL(fileInput[i]);
@@ -97,9 +104,30 @@ function actualizarPreview() {
             else if (count > 10 && count < 16) {
                 row3.appendChild(listItem);
             }
+            else if (count > 15 && count < 21) {
+                row4.appendChild(listItem);
+            }
+            else if (count > 20 && count < 26) {
+                row5.appendChild(listItem);
+            }
+            else if (count > 25 && count < 31) {
+                row6.appendChild(listItem);
+            }
+            else if (count > 30 && count < 36) {
+                row7.appendChild(listItem);
+            }
+            else if (count > 35 && count < 41) {
+                row8.appendChild(listItem);
+            }
+            else if (count > 40 && count < 46) {
+                row9.appendChild(listItem);
+            }
+            else if (count > 45 && count < 51) {
+                row10.appendChild(listItem);
+            }
             //advertencia no mas archivos seran cargados
             else {
-                alert("you reach the maximum of 15 files added");
+                alert("you reach the maximum of 50 files added");
                 var aler = document.createElement('p');
                 aler.textContent = 'no more files will be added';
                 preview.appendChild(aler);
@@ -213,7 +241,7 @@ function comprimir() {
         `{
     "format_version": 1,
     "header": {
-        "description": "${limpiar(zipname)} skin pack\\nskin pack generated using SKin Zipper\\nhttps://innova67.github.io/skin-zipper/",
+        "description": "${limpiar(zipname)} skin pack\\nskin pack generated using Skin Zipper\\nhttps://innova67.github.io/skin-zipper/",
         "name": "${limpiar(zipname)}",
         "uuid": "${uuid()}",
         "version": [1, 0, 0],
