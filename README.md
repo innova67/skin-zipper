@@ -22,6 +22,8 @@ pack all yout favorite skins into a single skin pack [here](https://innova67.git
 - [x] create generator script
 - [x] open the web to the public
 - [x] increase website capabilities
+- [x] update style
+- [ ] make it responsive (suggested)
 
 #### website licensed under GNU public license v3.0
 
