@@ -2,8 +2,6 @@ var input = document.querySelector('input');
 var preview = document.querySelector('.preview');
 var skins = document.getElementById('skins');
 
-var reseteo = document.getElementById('reseteo');
-
 var row1 = document.querySelector('.row-1');
 var row2 = document.querySelector('.row-2');
 var row3 = document.querySelector('.row-3');
@@ -17,6 +15,7 @@ var row10 = document.querySelector('.row-10');
 
 
 var zipname = document.getElementById('zipname');
+var bdw = document.querySelector('.finaldw');
 var dowload = document.getElementById('download');
 var count = 0;
 
@@ -27,7 +26,6 @@ var fileList = [];
 input.style.visibility = 'hidden';
 
 input.addEventListener('change', actualizarPreview);
-reseteo.addEventListener('click', reset);
 dowload.addEventListener('click', comprimir);
 
 function actualizarPreview() {
@@ -53,6 +51,8 @@ function actualizarPreview() {
 
         //habilitar el boton de descarga
         dowload.disabled = '';
+        Advertencia('eliminari');
+        preview.style = 'background:rgba(143, 186, 220, 0.5); border-radius:20px; padding-top:15px;';
 
         for (var i = 0; i < fileInput.length; i++) {
             var listItem = document.createElement('td');
@@ -148,50 +148,6 @@ function validFileType(file) {
     return false;
 }
 
-
-function reset() {
-
-    //resetear los archivos
-    fileList = [];
-
-    //crear la advertencia de 0 archvios subidos
-    Advertencia('eliminar');
-
-    //desabilitar la descarga
-    dowload.disabled = 'disabled';
-
-    //iniciar un nuevo zip despreciando los anteriores datos guardados
-    zip = new JSZip();
-
-    //limpiar las previews y cualquier mensaje anterior
-    while (row1.firstChild) {
-        var dentroTd = row1.firstChild;
-        var imagen = dentroTd.firstChild;
-        console.log(imagen.src);
-        window.URL.revokeObjectURL(imagen.src);
-        console.log(imagen.src);
-        row1.removeChild(row1.firstChild);
-    }
-
-    while (row2.firstChild) {
-        var dentroTd = row2.firstChild;
-        var imagen = dentroTd.firstChild;
-        window.URL.revokeObjectURL(imagen.src);
-        row2.removeChild(row2.firstChild);
-    }
-
-    while (row3.firstChild) {
-        var dentroTd = row3.firstChild;
-        var imagen = dentroTd.firstChild;
-        window.URL.revokeObjectURL(imagen.src);
-        row3.removeChild(row3.firstChild);
-    }
-
-    Advertencia('crear');
-
-    console.log('reset exitoso');
-}
-
 function comprimir() {
     var enus = `skinpack.${limpiar(zipname)}=${zipname.value}\n`;
     var enusAux = '';
@@ -275,12 +231,12 @@ function limpiar(esto) {
     return contenido;
 }
 
-function limpiarEnc(cadena){
+function limpiarEnc(cadena) {
     var contenido = "";
     for (var i = 0; i < cadena.length; i++) {
-        if(cadena.charAt(i) === "§"){ 
-        contenido += "";
-        i += 1;
+        if (cadena.charAt(i) === "§") {
+            contenido += "";
+            i += 1;
         }
         else {
             contenido += cadena.charAt(i);
@@ -301,28 +257,28 @@ function uuid() {
 
 //no puedo borrar estas advertencias (-_-)
 function Advertencia(modo) {
-	var nothing = document.getElementById('null');
+    var nothing = document.getElementById('null');
+    var downinfo = document.getElementById('binf');
     try {
-        if (modo === 'crear') {
-            var para = document.createElement('p');
-            para.id = 'null';
-            para.style = 'color:black';
-            para.textContent = 'No files currently selected for upload';
-            preview.insertBefore(para, skins);
-        }
-        else if (modo === 'eliminar') {
-            console.log('advertencia eliminada');
-            preview.removeChild(nothing);
+        switch (modo) {
+            case 'crear':
+                var para = document.createElement('p');
+                para.id = 'null';
+                para.style = 'color:rgba(255, 255, 255, 0.6)';
+                para.textContent = 'No files currently selected for upload';
+                preview.insertBefore(para, skins);
+                break;
+            case 'eliminar':
+                console.log('advertencia eliminada');
+                preview.removeChild(nothing);
+                break;
+            case 'eliminari':
+                console.log('info eliminada');
+                bdw.removeChild(downinfo);
+                break;
+            default:
+                break;
         }
     }
     catch (err) { }
 }
-
-/*
-    ERRORES
-
-conocidos:
- el mensaje de "ningun archvio seleccionado" no se borra despues de usar el boton reset
- los dataURL no se borran al usar el reset
-
-*/

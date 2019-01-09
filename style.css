@@ -129,13 +129,13 @@ form p {
   }
 
   form div > p {
-    background: #eee;
+    width: 260px;
+    background: rgba(133, 176, 216, 0.438);
     display: flex;
-    justify-content: space-between;
+    margin: 0 auto 10px auto;
     margin-bottom: 10px;
-    list-style-type: none;
-    border: 1px solid black;
-    width: 500px;
+    border: 1px solid rgba(0, 0, 0, 0.37);
+    border-radius: 10px;
   }
 
   /*----------------------------------------------
@@ -190,4 +190,20 @@ a {
 
 a:hover{
     color: aqua;
+}
+
+/*---------------------------------------------
+    more stuff i guess
+-----------------------------------------------*/
+
+.finaldw p {
+    line-height: 32px;
+    padding-left: 35px;
+    background: rgba(133, 176, 216, 0.438);
+    display: flex;
+    margin: 0 auto 10px auto;
+    margin-bottom: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.473);
+    border-radius: 10px;
+    width: 250px;
 }
