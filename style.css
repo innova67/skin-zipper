@@ -10,14 +10,20 @@
 body {
     font-family: 'Source Sans Pro', sans-serif;
     color: #ffffff;
-    background-color: #05294B;
+    background-color: rgba(84, 139, 230, 0.377);
+    background-blend-mode: color;
+    background-image: url('media/bg.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
 }
 
 header {
     text-align: center;
     font-size: 40px;
     font-weight: 600;
-    background-color: #6084A7;
+    background-color: rgba(45, 143, 235, 0.589);
+    background-blend-mode: overlay;
     padding-bottom: 10px;
     border-radius: 10px;
     margin: 30px 0;
@@ -72,7 +78,7 @@ li{
 }
 
 ul,ol {
-    background-color: rgba(96, 132, 167, 0.384);
+    background-color: rgba(4, 52, 100, 0.596);
     border-radius: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -89,7 +95,8 @@ form p {
     padding-left: 10px;
   }
   form label, form button {
-    background-color: #7F9CCB;
+    background-color: rgb(233, 241, 255);
+    color: #3f3f3f;
     padding: 5px 10px;
     border-radius: 5px;
     border: 1px ridge black;
@@ -163,7 +170,8 @@ div#zipn .aux {
 }
 
 footer p {
-    background-color: #6084A7;
+    color: #ffffff6e;
+    background-color: rgba(96, 132, 167, 0.267);
     margin-top: 40px;
     text-align: center;
     padding: 10px;
@@ -177,7 +185,7 @@ button#reseteo {
 
 a {
     text-decoration: none;
-    color: rgb(240, 240, 84);
+    color: rgba(240, 240, 84, 0.63);
 }
 
 a:hover{
